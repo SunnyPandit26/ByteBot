@@ -4,7 +4,7 @@ import webbrowser
 import speech_recognition as sr
 import time
 
-# from transformers import pipeline
+
 import pywhatkit as kit
 
 # Initialize TTS engine
@@ -97,7 +97,7 @@ def process_command(command):
         speak(f"Searching on google about {query}")
 
     elif "movie" in command:
-        movie_path = r"C:\Users\sunny\Downloads\Prmovies-Rab_Ne_Bana_Di_Jodi.mp4"     # apna path daalo
+        movie_path = r" "     # put your path here 
         os.startfile(movie_path)
         speak("Playing movie")
         print("🎵 Playing movie...")
@@ -116,22 +116,19 @@ def process_command(command):
         
     elif "exit" in command or "stop" in command or "bye" in command:
         speak("okay sir, Goodbye , Meet you soon")
-        engine.iterate()   # 🟢 wait until "Goodbye" finishes
+        engine.iterate()  
         time.sleep(3)
         engine.endLoop()
         return False
 
     else:
-        print("❓ Sorry, I don't understand that command.")
+        print(" Sorry, I don't understand that command.")
         speak("Sorry, I don't understand that command.")
         
     return True
     
     
-    
-# process_command("google")
-# speak("2354544852")
-   
+
 
     
 speak("Voice assistant started. Say something...")
@@ -149,9 +146,11 @@ while True:
                 break  
            
         except sr.UnknownValueError:
-            print("Firse bol samhj nhi ayaa...")
+            print("Can you Say Again I can't understand")
+            speak("Can you Say Again I can't understand")
         except sr.RequestError:
             print("chech your internet connection...")
+            speak("chech your internet connection...")
     
             
 
